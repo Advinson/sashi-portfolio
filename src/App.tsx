@@ -1,4 +1,5 @@
-import { About, AboutBrandboard } from './About'
+import { About } from './About'
+import { Brandboard } from './Brandboard'
 import { Hero, LoadingIntro } from './Hero'
 import { SiteHeader } from './SiteHeader'
 
@@ -11,7 +12,7 @@ export function App() {
       <main id="main-content" tabIndex={-1}>
         <Hero />
         <About />
-        <AboutBrandboard />
+        <Brandboard />
       </main>
     </>
   )

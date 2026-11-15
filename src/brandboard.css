@@ -1,0 +1,162 @@
+.brandboard {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100svh - var(--header-height));
+}
+
+.brandboard-frame { width: 100%; }
+
+.brandboard-intro {
+  padding: 2.1cqw 6.35cqw 1.4cqw;
+}
+
+.brandboard-title, .brandboard-signature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brandboard-title {
+  margin: 0 0 3cqw;
+  gap: 0.95cqw;
+  font-size: clamp(3rem, 6.55cqw, 6.55rem);
+  line-height: 1;
+}
+
+.brandboard-signature { gap: 0.35cqw; }
+.brandboard-mascot { width: 8.25cqw; }
+
+.brandboard-wordmark {
+  /* The wordmarks occupy different rectangles in the original brand guide. */
+  --crop-width: 266;
+  --crop-height: 64;
+  --crop-x: 24;
+  --crop-y: 654;
+  display: block;
+  width: 15.2cqw;
+  font-size: clamp(0.625rem, 1.22cqw, 1.22rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.wordmark-art {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: var(--crop-width) / var(--crop-height);
+  background: var(--paper);
+}
+
+.wordmark-art img {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: calc(1024 / var(--crop-width) * 100%);
+  max-width: none;
+  transform: translate(calc(var(--crop-x) / -1024 * 100%), calc(var(--crop-y) / -768 * 100%));
+  mix-blend-mode: multiply;
+}
+
+.wordmark-tagline { display: block; margin-top: 0.12em; padding-right: 0.3em; text-align: right; }
+
+.wordmark-light {
+  --crop-width: 300;
+  --crop-height: 78;
+  --crop-x: 454;
+  --crop-y: 44;
+  width: calc(19 * var(--sample-unit));
+  font-size: clamp(0.8rem, 1.45cqw, 1.45rem);
+}
+
+.wordmark-light .wordmark-art { background: var(--ink); }
+.wordmark-light .wordmark-art img { mix-blend-mode: screen; }
+
+.brandboard-grid {
+  --sample-unit: 1cqw;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.35cqw;
+  text-align: center;
+}
+
+.brandboard-item h3 {
+  margin: 0 0 0.48em;
+  font-size: clamp(0.85rem, 1.4cqw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.brandboard-graphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(7.1 * var(--sample-unit));
+}
+
+.brand-construction {
+  gap: calc(0.5 * var(--sample-unit));
+  font-size: calc(2.8 * var(--sample-unit));
+  font-weight: 700;
+  line-height: 1;
+}
+
+.brand-construction img { width: auto; max-width: none; }
+.construction-mask { height: calc(5.6 * var(--sample-unit)); }
+.construction-scorpion { height: calc(5.7 * var(--sample-unit)); }
+.construction-mascot { height: calc(8.15 * var(--sample-unit)); margin-inline: calc(-0.85 * var(--sample-unit)); }
+
+.brandboard-palette { width: calc(23.7 * var(--sample-unit)); }
+.brand-variations { gap: calc(0.85 * var(--sample-unit)); }
+
+.brandboard-variant {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: calc(6.75 * var(--sample-unit));
+  aspect-ratio: 1;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.brandboard-monochrome { width: 133%; max-width: none; }
+.brandboard-outline { width: 140%; max-width: none; }
+
+.brandboard-outline-burgundy {
+  aspect-ratio: 494 / 424;
+  background: var(--accent-text);
+  mask: url('/art/brandboard/outline.webp') center / contain no-repeat;
+}
+
+.brandboard-dark {
+  flex: 1;
+  background: var(--ink);
+  color: white;
+}
+
+.brandboard-details { padding: 3.45cqw 6.35cqw 7.4cqw; }
+.brandboard-details .brandboard-graphic { min-height: calc(8.85 * var(--sample-unit)); }
+
+.brandboard-type {
+  display: grid;
+  font-size: calc(2.8 * var(--sample-unit));
+  line-height: 1.04;
+}
+
+.brandboard-type span:last-child { font-family: 'More Sugar', Caldina, Arial, sans-serif; }
+.brandboard-pattern { width: calc(17.6 * var(--sample-unit)); }
+
+@media (max-width: 47.99rem) {
+  .brandboard-intro { padding: 2rem 1.4rem 2.75rem; }
+  .brandboard-title { gap: 0.55rem; margin: 0 0 2.2rem; font-size: clamp(2.25rem, 8.8cqw, 3.6rem); }
+  .brandboard-signature { gap: 0.25rem; }
+  .brandboard-mascot { width: clamp(3rem, 15cqw, 4.7rem); }
+  .brandboard-wordmark { width: clamp(5.5rem, 29cqw, 8.5rem); }
+
+  .brandboard-grid {
+    --sample-unit: min(3.13cqw, 0.85rem);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.65rem;
+  }
+
+  .brandboard-item h3 { font-size: 1rem; }
+  .brandboard-details { padding: 2.5rem 1.4rem 3rem; }
+  .wordmark-light { width: calc(19 * var(--sample-unit)); }
+}

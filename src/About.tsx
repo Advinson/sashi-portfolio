@@ -56,13 +56,3 @@ export function About() {
     </section>
   )
 }
-
-export function AboutBrandboard() {
-  return (
-    <section id="about-2" className="brandboard" aria-labelledby="brandboard-title">
-      <div className="content-frame">
-        <h2 id="brandboard-title">Brandboard</h2>
-      </div>
-    </section>
-  )
-}
