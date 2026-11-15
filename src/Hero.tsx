@@ -16,14 +16,18 @@ export function LoadingIntro() {
   )
 }
 
+export function HeroRibbons() {
+  return (
+    <div className="hero-ribbons" aria-hidden="true">
+      <img className="ribbon ribbon-left" src="/art/ribbon.webp" alt="" width="676" height="285" />
+      <img className="ribbon ribbon-right" src="/art/ribbon.webp" alt="" width="676" height="285" />
+    </div>
+  )
+}
+
 export function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <div className="hero-ribbons" aria-hidden="true">
-        <img className="ribbon ribbon-left" src="/art/ribbon.webp" alt="" width="676" height="285" />
-        <img className="ribbon ribbon-right" src="/art/ribbon.webp" alt="" width="676" height="285" />
-      </div>
-
       <div className="hero-copy">
         <h1 id="hero-title">
           <span className="hero-greeting">Hi! You can <span className="call-me">call me<span className="accent-lines" aria-hidden="true"><i /><i /><i /></span></span></span>{' '}

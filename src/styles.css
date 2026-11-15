@@ -55,15 +55,21 @@ button { font: inherit; color: inherit; }
 .skip-link:focus { transform: none; }
 
 .showcase {
-  max-width: 100rem;
-  margin-inline: auto;
+  --content-max: 100rem;
+  --content-width: min(100cqw, var(--content-max));
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
   container-type: inline-size;
 }
 
 .scene {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
-  min-height: max(100svh, 56.25cqw);
+  min-height: max(100svh, calc(var(--content-width) * 0.5625));
 }
 
 .site-header {
@@ -207,6 +213,15 @@ main { display: flex; flex: 1; }
   line-height: 1.03;
   text-align: center;
   cursor: default;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+@media (hover: hover) {
+  .hero-action:hover {
+    border-color: var(--accent);
+    background-color: var(--accent);
+    color: white;
+  }
 }
 
 .action-divider {
@@ -215,7 +230,7 @@ main { display: flex; flex: 1; }
 }
 
 .hero-art, .hero-ribbons { position: absolute; inset: 0; pointer-events: none; }
-.hero-ribbons { z-index: -2; }
+.hero-ribbons { z-index: -1; }
 .hero-art { z-index: -1; }
 
 .character, .floating-figure, .ribbon { position: absolute; }
@@ -230,9 +245,9 @@ main { display: flex; flex: 1; }
   animation: float 4.8s var(--float-delay) ease-in-out infinite;
 }
 
-.ribbon { width: 33cqw; max-width: none; }
-.ribbon-left { left: -7.9cqw; bottom: -1.1cqw; transform: rotate(19deg); }
-.ribbon-right { right: -5.4cqw; bottom: -1.8cqw; transform: rotate(-21deg); }
+.ribbon { width: calc(var(--content-width) * 0.33); max-width: none; }
+.ribbon-left { left: calc(var(--content-width) * -0.079); bottom: calc(var(--content-width) * -0.011); transform: rotate(19deg); }
+.ribbon-right { right: calc(var(--content-width) * -0.054); bottom: calc(var(--content-width) * -0.018); transform: rotate(-21deg); }
 
 .loading-intro {
   position: fixed;
