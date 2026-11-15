@@ -39,7 +39,7 @@ export function Hero() {
           </h1>
           <p>I’m a graphic designer based in Honduras with a deep love for editorial design, illustrations and personal brands.</p>
           <div className="hero-actions">
-            <span className="hero-action" role="link" aria-disabled="true">Check what I<br />can do for you!</span>
+            <a className="hero-action" href="#services">Check what I<br />can do for you!</a>
             <span className="action-divider">or</span>
             <span className="hero-action" role="link" aria-disabled="true">Take a look at<br />my portfolio!</span>
           </div>

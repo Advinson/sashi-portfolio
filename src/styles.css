@@ -217,9 +217,10 @@ button { font: inherit; color: inherit; }
   font-size: clamp(0.6875rem, 1.02cqw, 1.05rem);
   line-height: 1.03;
   text-align: center;
-  cursor: default;
   transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
 }
+
+.hero-action[aria-disabled] { cursor: default; }
 
 @media (hover: hover) {
   .hero-action:hover {

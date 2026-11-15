@@ -1,0 +1,163 @@
+.services {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+
+.services > .content-frame { max-width: 112rem; }
+
+.services-layout {
+  position: relative;
+  min-height: calc(max(100svh, 56.25cqw) - var(--header-height));
+  padding: 4.65cqw 0 3.2cqw 8.45cqw;
+}
+
+.services-copy { width: 52cqw; }
+.services-copy h2 { margin: 0; }
+
+.services-greeting {
+  display: block;
+  font-size: clamp(2rem, 3.4cqw, 3.85rem);
+  font-weight: 400;
+  line-height: 1.16;
+}
+
+.services-title {
+  display: block;
+  margin-left: -0.055em;
+  font-size: clamp(3.45rem, 5.75cqw, 6.45rem);
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.services-intro {
+  max-width: 37.25ch;
+  margin-top: 0.85em;
+  font-size: clamp(1rem, 1.3cqw, 1.45rem);
+  line-height: 1.4;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  gap: 1.38cqw 2.15cqw;
+  margin: 1.44cqw 0 0 -1.2cqw;
+  padding: 0;
+  list-style: none;
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: max(2rem, 2.55cqw) minmax(0, 1fr);
+  gap: 0.64cqw;
+  font-size: clamp(0.875rem, 0.89cqw, 1rem);
+  line-height: 1.34;
+}
+
+.service-index {
+  font-family: 'More Sugar', Caldina, Arial, sans-serif;
+  font-size: clamp(1.65rem, 2.24cqw, 2.5rem);
+  line-height: 1.02;
+}
+
+.service-item h3 {
+  width: fit-content;
+  margin: 0;
+  padding-bottom: 0.12em;
+  border-bottom: 2px solid var(--ink);
+  font-size: clamp(1.04rem, 1.35cqw, 1.52rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.service-item p {
+  max-width: 45ch;
+  margin: 0.55em 0 0.32em;
+  color: var(--accent-text);
+  line-height: 1.22;
+}
+
+.service-item ul { list-style: disc; }
+
+.services-art {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 auto;
+  width: 42%;
+  pointer-events: none;
+}
+
+.services-mascot {
+  position: absolute;
+  top: max(1.1cqw, (100% - 44cqw) * 0.35);
+  left: 19%;
+  width: 63%;
+  aspect-ratio: 722 / 1198;
+  overflow: clip;
+  clip-path: polygon(0 0, 100% 0, 100% 74%, 82% 74%, 82% 100%, 0 100%);
+}
+
+.services-mascot img {
+  /* Trim transparent canvas around the original illustration. */
+  width: calc(1080 / 722 * 100%);
+  max-width: none;
+  transform: translate(-16.6667%, -6.0741%);
+}
+
+.services-red-line {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 62%;
+  height: 50%;
+  overflow: clip;
+  clip-path: polygon(0 0, 100% 0, 100% 34%, 86% 55%, 84% 100%, 0 100%);
+}
+
+.services-squiggle {
+  position: absolute;
+  aspect-ratio: 312 / 508.2;
+  background: var(--accent);
+  mask: url('/art/services-squiggle.svg') center / contain no-repeat;
+  transform: rotate(80deg) scaleY(-1);
+  pointer-events: none;
+}
+
+.services-red-line .services-squiggle { top: -1.8cqw; left: 21.3%; width: 71%; }
+
+.services-ink-line {
+  z-index: -2;
+  right: max(-11vw, -7rem);
+  bottom: max(-19vw, -14.25rem);
+  width: min(22vw, 24rem);
+  background: var(--ink);
+}
+
+.service-figure { position: absolute; }
+.service-figure img { animation: float 4.8s var(--float-delay) ease-in-out infinite; }
+.service-figure-scorpion { top: 17%; left: 15%; width: 16%; scale: -1 1; rotate: -9deg; --float-delay: -2s; }
+.service-figure-skull { top: 23%; right: 4%; width: 19%; rotate: -39deg; --float-delay: -3.1s; }
+.service-figure-cat { bottom: 25%; left: 20%; width: 20%; rotate: 26deg; --float-delay: -800ms; }
+
+@media (max-width: 62.5rem) {
+  .services-layout { padding: 2.9rem 0 0; }
+  .services-copy { width: min(100% - 2.8rem, 48rem); margin-inline: auto; }
+  .services-title { font-size: clamp(3.2rem, 9cqw, 5.75rem); }
+  .service-list { gap: 1.55rem 1.65rem; margin: 1.6rem 0 0; }
+  .service-item { grid-template-columns: 2.25rem minmax(0, 1fr); gap: 0.65rem; }
+  .services-art { position: relative; width: min(100%, 34rem); height: clamp(21rem, 105cqw, 35rem); margin: 1.6rem auto 0; }
+  .services-mascot { top: 5.3%; left: 23%; width: 56%; }
+  .services-red-line .services-squiggle { top: -17cqw; }
+  .services-ink-line { right: -15vw; bottom: -23vw; width: min(42vw, 27rem); }
+  .service-figure-scorpion { left: 15%; top: 13%; }
+  .service-figure-cat { bottom: 24%; }
+}
+
+@media (max-width: 47.99rem) {
+  .services-layout { padding-top: 2.25rem; }
+  .services-title { font-size: clamp(2.8rem, 12.8cqw, 5.1rem); }
+  .service-list { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-auto-flow: row; }
+  .services-red-line .services-squiggle { top: -11cqw; }
+  .service-figure-cat { left: 16%; }
+}

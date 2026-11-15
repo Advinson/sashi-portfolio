@@ -9,9 +9,12 @@ const socialLinks = [
 const sections = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'services', label: 'Services' },
 ] as const
 
-const upcomingSections = ['Services', 'Portfolio', 'Contact']
+type SectionId = (typeof sections)[number]['id']
+
+const upcomingSections = ['Portfolio', 'Contact']
 
 function SocialIcon({ name }: { name: (typeof socialLinks)[number]['name'] }) {
   const glyphs = {
@@ -38,18 +41,20 @@ function SocialIcon({ name }: { name: (typeof socialLinks)[number]['name'] }) {
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState<'home' | 'about'>('home')
+  const [activeSection, setActiveSection] = useState<SectionId>('home')
   const header = useRef<HTMLElement>(null)
   const menuButton = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    const about = document.getElementById('about')
     const siteBar = header.current
-    if (!about || !siteBar) return
+    if (!siteBar) return
+
+    const targets = sections.map(({ id }) => ({ id, element: document.getElementById(id) })).reverse()
 
     const onScroll = () => {
       const threshold = Math.max(siteBar.offsetHeight + 1, window.innerHeight * 0.35)
-      setActiveSection(about.getBoundingClientRect().top <= threshold ? 'about' : 'home')
+      const current = targets.find(({ element }) => element && element.getBoundingClientRect().top <= threshold)
+      setActiveSection(current?.id ?? 'home')
     }
 
     onScroll()
@@ -63,7 +68,7 @@ export function SiteHeader() {
 
   function closeMenu() {
     setMenuOpen(false)
-    if (menuOpen && menuButton.current?.getClientRects().length) menuButton.current.focus()
+    if (menuOpen && menuButton.current?.getClientRects().length) menuButton.current.focus({ preventScroll: true })
   }
 
   return (
