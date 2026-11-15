@@ -126,12 +126,11 @@
 }
 
 .brandboard-dark {
-  flex: 1;
   background: var(--ink);
   color: white;
 }
 
-.brandboard-details { padding: 3.45cqw 6.35cqw 7.4cqw; }
+.brandboard-details { padding: 3.45cqw 6.35cqw; }
 .brandboard-details .brandboard-graphic { min-height: calc(8.85 * var(--sample-unit)); }
 
 .brandboard-type {
@@ -157,6 +156,6 @@
   }
 
   .brandboard-item h3 { font-size: 1rem; }
-  .brandboard-details { padding: 2.5rem 1.4rem 3rem; }
+  .brandboard-details { padding: 2.5rem 1.4rem; }
   .wordmark-light { width: calc(19 * var(--sample-unit)); }
 }
