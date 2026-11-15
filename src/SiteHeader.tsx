@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const socialLinks = [
   { name: 'Instagram', url: 'https://www.instagram.com/bysashiii/' },
@@ -6,7 +6,12 @@ const socialLinks = [
   { name: 'Email', url: 'mailto:bysashii@outlook.com' },
 ] as const
 
-const upcomingSections = ['About', 'Services', 'Portfolio', 'Contact']
+const sections = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+] as const
+
+const upcomingSections = ['Services', 'Portfolio', 'Contact']
 
 function SocialIcon({ name }: { name: (typeof socialLinks)[number]['name'] }) {
   const glyphs = {
@@ -33,53 +38,81 @@ function SocialIcon({ name }: { name: (typeof socialLinks)[number]['name'] }) {
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState<'home' | 'about'>('home')
+  const header = useRef<HTMLElement>(null)
   const menuButton = useRef<HTMLButtonElement>(null)
 
+  useEffect(() => {
+    const about = document.getElementById('about')
+    const siteBar = header.current
+    if (!about || !siteBar) return
+
+    const onScroll = () => {
+      const threshold = Math.max(siteBar.offsetHeight + 1, window.innerHeight * 0.35)
+      setActiveSection(about.getBoundingClientRect().top <= threshold ? 'about' : 'home')
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
+
+  function closeMenu() {
+    setMenuOpen(false)
+    if (menuOpen && menuButton.current?.getClientRects().length) menuButton.current.focus()
+  }
+
   return (
-    <header className="site-header" onKeyDown={(event) => {
-      if (event.key === 'Escape' && menuOpen) {
-        setMenuOpen(false)
-        menuButton.current?.focus()
-      }
+    <header ref={header} className="site-bar" onKeyDown={(event) => {
+      if (event.key === 'Escape' && menuOpen) closeMenu()
     }}>
-      <div className="header-identity">
-        <a className="brand" href="#home" aria-label="Sashi, home" onClick={() => setMenuOpen(false)}>
-          <img src="/art/sashi-logo.webp" alt="" width="160" height="153" />
-        </a>
-        <ul className="social-links" aria-label="Social media and email">
-          {socialLinks.map(({ name, url }) => (
-            <li key={name}>
-              <a href={url} aria-label={name}>
-                <span className="social-icon"><SocialIcon name={name} /></span>
-              </a>
-            </li>
-          ))}
-        </ul>
+      <div className="content-frame">
+        <div className="site-header">
+          <div className="header-identity">
+            <a className="brand" href="#home" aria-label="Sashi, home" onClick={() => setMenuOpen(false)}>
+              <img src="/art/sashi-logo.webp" alt="" width="160" height="153" />
+            </a>
+            <ul className="social-links" aria-label="Social media and email">
+              {socialLinks.map(({ name, url }) => (
+                <li key={name}>
+                  <a href={url} aria-label={name}>
+                    <span className="social-icon"><SocialIcon name={name} /></span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <button
+            type="button"
+            className="menu-toggle"
+            aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+            aria-controls="main-navigation"
+            aria-expanded={menuOpen}
+            ref={menuButton}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span aria-hidden="true" className="menu-icon"><i /><i /><i /></span>
+          </button>
+
+          <nav id="main-navigation" className="site-nav" aria-label="Main navigation" data-open={menuOpen}>
+            <ul>
+              {sections.map(({ id, label }) => (
+                <li key={id}>
+                  <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined} onClick={closeMenu}>{label}</a>
+                </li>
+              ))}
+              {upcomingSections.map((section) => (
+                <li key={section}><span role="link" aria-disabled="true">{section}</span></li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
-
-      <button
-        type="button"
-        className="menu-toggle"
-        aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
-        aria-controls="main-navigation"
-        aria-expanded={menuOpen}
-        ref={menuButton}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <span aria-hidden="true" className="menu-icon"><i /><i /><i /></span>
-      </button>
-
-      <nav id="main-navigation" className="site-nav" aria-label="Main navigation" data-open={menuOpen}>
-        <ul>
-          <li><a href="#home" aria-current="page" onClick={() => {
-            setMenuOpen(false)
-            if (menuOpen && menuButton.current?.getClientRects().length) menuButton.current.focus()
-          }}>Home</a></li>
-          {upcomingSections.map((section) => (
-            <li key={section}><span role="link" aria-disabled="true">{section}</span></li>
-          ))}
-        </ul>
-      </nav>
     </header>
   )
 }

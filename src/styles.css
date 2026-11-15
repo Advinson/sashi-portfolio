@@ -27,6 +27,10 @@
   --ink: #000;
   --accent-text: #b8143d;
   --accent: #ff0040;
+  --content-max: 100rem;
+  --desktop-width: min(100vw, var(--content-max));
+  --header-height: calc(var(--desktop-width) * 0.0365 + max(2.75rem, var(--desktop-width) * 0.0415) * 153 / 160);
+  scroll-padding-top: var(--header-height);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -55,7 +59,6 @@ button { font: inherit; color: inherit; }
 .skip-link:focus { transform: none; }
 
 .showcase {
-  --content-max: 100rem;
   --content-width: min(100cqw, var(--content-max));
   position: relative;
   isolation: isolate;
@@ -63,13 +66,17 @@ button { font: inherit; color: inherit; }
   container-type: inline-size;
 }
 
-.scene {
+.content-frame {
   max-width: var(--content-max);
   margin-inline: auto;
   container-type: inline-size;
-  display: flex;
-  flex-direction: column;
-  min-height: max(100svh, calc(var(--content-width) * 0.5625));
+}
+
+.site-bar {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  background: var(--paper);
 }
 
 .site-header {
@@ -122,15 +129,13 @@ button { font: inherit; color: inherit; }
 .site-nav [aria-disabled] { cursor: default; }
 .menu-toggle { display: none; }
 
-main { display: flex; flex: 1; }
-
 .hero {
   position: relative;
   display: flex;
   align-items: flex-start;
   isolation: isolate;
   overflow: clip;
-  width: 100%;
+  min-height: calc(max(100svh, var(--content-width) * 0.5625) - var(--header-height));
 }
 
 .hero-copy {
@@ -149,7 +154,7 @@ main { display: flex; flex: 1; }
   line-height: 1.15;
 }
 
-.call-me {
+.accent-pill {
   position: relative;
   display: inline-block;
   padding: 0.01em 0.2em 0.04em;
@@ -249,6 +254,125 @@ main { display: flex; flex: 1; }
 .ribbon-left { left: calc(var(--content-width) * -0.079); bottom: calc(var(--content-width) * -0.011); transform: rotate(19deg); }
 .ribbon-right { right: calc(var(--content-width) * -0.054); bottom: calc(var(--content-width) * -0.018); transform: rotate(-21deg); }
 
+.about {
+  min-height: calc(100svh - var(--header-height));
+  overflow: clip;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 34.5cqw minmax(0, 1fr);
+  gap: 4.45cqw;
+  padding: 4.1cqw 0 0 9cqw;
+}
+
+.about-copy {
+  padding-bottom: 2.5rem;
+  font-size: clamp(0.75rem, 1.14cqw, 1.14rem);
+  line-height: 1.32;
+}
+
+.about-copy h2 { margin: 0; }
+
+.about-greeting {
+  display: block;
+  font-size: clamp(1.65rem, 3.5cqw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.about-name {
+  display: block;
+  margin-left: -0.055em;
+  font-size: clamp(3.35rem, 7.8cqw, 7.8rem);
+  line-height: 0.9;
+}
+
+.about-copy p { margin-top: 0.4em; }
+.about-details { display: grid; gap: 0.7em; margin: 1.05em 0 0.8em; }
+.about-details dt { margin-bottom: 0.12em; font-size: 1.18em; font-weight: 700; }
+.about-details dd { max-width: 33ch; margin: 0; }
+
+.about-brandboard {
+  display: inline-grid;
+  justify-items: center;
+  gap: 0.15em;
+  color: var(--accent-text);
+  font-size: 1.12em;
+}
+
+.about-brandboard svg { width: 1.2em; height: 2.5em; transition: transform 180ms ease; }
+.about-brandboard:is(:hover, :focus-visible) svg { transform: translateY(0.24em); }
+
+.about-artwork {
+  position: relative;
+  align-self: start;
+  width: 100%;
+  aspect-ratio: 550 / 487;
+  margin-top: -1.05cqw;
+}
+
+.about-ribbons, .about-tagline { position: absolute; inset: 0; width: 100%; pointer-events: none; }
+.about-ribbons { overflow: visible; fill: var(--ink); }
+
+.about-ribbon-black, .about-ribbon-red {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.about-ribbon-black { stroke: var(--ink); stroke-width: 29px; }
+.about-ribbon-red { stroke: var(--accent); stroke-width: 16px; }
+
+.about-portrait {
+  position: absolute;
+  top: 6.3%;
+  left: 17.45%;
+  width: 49.8%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.about-portrait img {
+  /* Fit the 394px circular portrait at (315, 182) within the supplied 1024×768 image. */
+  width: calc(1024 / 394 * 100%);
+  max-width: none;
+  transform: translate(-30.76%, -23.7%);
+}
+
+.about-tagline { fill: var(--accent-text); font-size: 18.5px; font-weight: 700; }
+
+.about-cv {
+  position: absolute;
+  inset: 68.2% auto auto 25%;
+  display: grid;
+  place-items: center;
+  width: 34.7%;
+  min-height: max(2.75rem, 4.25cqw);
+  padding: 0.15em;
+  border-radius: 0.65em;
+  background: var(--ink);
+  color: white;
+  font-family: 'More Sugar', Caldina, Arial, sans-serif;
+  font-size: clamp(1rem, 2.25cqw, 2.25rem);
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color 180ms ease;
+}
+
+.about-cv:is(:hover, :focus-visible) { background: var(--accent-text); }
+
+.brandboard {
+  min-height: calc(100svh - var(--header-height));
+}
+
+.brandboard h2 {
+  margin: 0;
+  padding: 4.1cqw 9cqw 2rem;
+  font-size: clamp(2rem, 4.5cqw, 4.5rem);
+}
+
 .loading-intro {
   position: fixed;
   inset: 0;
@@ -287,8 +411,10 @@ body:focus-within .loading-intro { opacity: 0 !important; visibility: hidden !im
   100% { opacity: 0; visibility: hidden; }
 }
 
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
+  :root { scroll-behavior: smooth; }
+
+  @supports (animation-timeline: view()) {
     .hero-ribbons {
       animation: ribbons-scroll linear both;
       animation-timeline: view();
@@ -310,11 +436,17 @@ body:focus-within .loading-intro { opacity: 0 !important; visibility: hidden !im
       from { opacity: 0.45; translate: 0 0.85rem; }
       to { opacity: 1; translate: none; }
     }
+
+    .about-artwork {
+      animation: reveal-hero linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 26%;
+    }
   }
 }
 
 @media (max-width: 47.99rem) {
-  .scene { min-height: auto; }
+  :root { --header-height: 3.75rem; }
   .site-header { gap: 0.5rem; padding: 1rem 1.25rem 0; }
   .header-identity { gap: 0.55rem; }
   .brand { width: 2.75rem; flex-shrink: 0; }
@@ -355,7 +487,7 @@ body:focus-within .loading-intro { opacity: 0 !important; visibility: hidden !im
   .site-nav li { font-size: 1rem; }
   .site-nav li > * { padding-block: 0.71rem; }
 
-  .hero { flex-direction: column; align-items: center; }
+  .hero { flex-direction: column; align-items: center; min-height: auto; }
   .hero-copy { width: min(100% - 2.8rem, 25rem); margin: clamp(2.1rem, 8cqw, 3.6rem) 0 0; }
   .hero-greeting { font-size: clamp(1.53rem, 6.7cqw, 2.45rem); }
   .hero-name { font-size: clamp(4rem, 17cqw, 7.75rem); }
@@ -377,6 +509,15 @@ body:focus-within .loading-intro { opacity: 0 !important; visibility: hidden !im
   .ribbon { width: min(53cqw, 21rem); }
   .ribbon-left { left: -20cqw; bottom: 1.5rem; }
   .ribbon-right { right: -15cqw; bottom: 0.8rem; }
+
+  .about-layout { display: flex; flex-direction: column; gap: 1.5rem; padding: 2.25rem 0 0; }
+  .about-copy { width: min(100% - 2.8rem, 25rem); margin-inline: auto; padding: 0; font-size: 1rem; }
+  .about-greeting { font-size: clamp(1.6rem, 6.7cqw, 2.45rem); }
+  .about-name { font-size: clamp(3.4rem, 15.5cqw, 6.25rem); }
+  .about-details dd { max-width: 37ch; }
+  .about-artwork { align-self: center; width: min(100%, 34rem); margin-top: 0; }
+  .about-cv { font-size: clamp(0.94rem, 4.6cqw, 1.5rem); }
+  .brandboard h2 { padding: 2.25rem 1.4rem 2rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
