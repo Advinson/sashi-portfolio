@@ -1,0 +1,508 @@
+/* 1. Import de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* 2. Variables CSS */
+:root {
+    --gris-claro: #77767A;
+    --azul: #1D4E9D;
+    --negro: #000000;
+    --azul-oscuro: #233145;
+    --blanco: #ffffff;
+}
+
+/* 3. Reset y tipografía */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+/* 4. Navbar */
+.navbar-capixidil {
+    background-color: var(--azul-oscuro);
+    height: 100px;
+    position: relative;
+}
+
+.navbar-capixidil .nav-container {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar-capixidil .nav-arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.navbar-capixidil .nav-title p {
+    margin: 0;
+    line-height: 1.1;
+    text-align: center;
+    color: var(--blanco);
+}
+
+.navbar-capixidil .nav-title .label {
+    font: 300 1rem 'Poppins', sans-serif;
+}
+
+.navbar-capixidil .nav-title .title {
+    font: 300 1.2rem 'Poppins', sans-serif;
+}
+
+.navbar-capixidil .nav-icons {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-capixidil .icon {
+    width: 32px;
+    height: 32px;
+    filter: brightness(0) invert(1);
+}
+
+
+
+
+/* ——————————————————————————— */
+/* ≤ 991 px  (tablets)          */
+/* ——————————————————————————— */
+@media (max-width:991.98px) {
+    .navbar-capixidil {
+        height: 84px;
+    }
+
+    .navbar-capixidil .icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .navbar-capixidil .nav-title .label {
+        font-size: .9rem;
+    }
+
+    .navbar-capixidil .nav-title .title {
+        font-size: 1.05rem;
+    }
+}
+
+/* ——————————————————————————— */
+/* ≤ 767 px  (móviles)          */
+/* ——————————————————————————— */
+@media (max-width:767.98px) {
+    .navbar-capixidil {
+        height: 68px;
+    }
+
+    /* Reducir espacio entre flechas y título para que todo quepa */
+    .navbar-capixidil .nav-arrows {
+        gap: .5rem;
+    }
+
+    .navbar-capixidil .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .navbar-capixidil .nav-title .label {
+        font-size: .8rem;
+    }
+
+    .navbar-capixidil .nav-title .title {
+        font-size: .95rem;
+    }
+
+    /* Evitar solapes: limitar ancho del título y cortar con … si es largo */
+    .navbar-capixidil .nav-title {
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+/* ——————————————————————————— */
+/* ≤ 575 px  (teléfonos pequeños)*/
+/* ——————————————————————————— */
+@media (max-width:575.98px) {
+
+    /* Iconos aún más pequeños */
+    .navbar-capixidil .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Bajar todavía más las fuentes */
+    .navbar-capixidil .nav-title .label {
+        font-size: .75rem;
+    }
+
+    .navbar-capixidil .nav-title .title {
+        font-size: .9rem;
+    }
+}
+
+
+
+
+/* 5. Hero */
+.hero-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-section .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 40px;
+
+}
+
+
+
+
+
+
+
+
+
+/* ————————————————————————————— */
+/*  Sobre el proyecto            */
+/* ————————————————————————————— */
+
+#sobre-proyecto {
+    background-color: var(--blanco);
+}
+
+/* Título “Sobre el proyecto” */
+#sobre-proyecto .titulo-proyecto {
+    font-family: 'Anton', sans-serif;
+    font-size: 4.9rem;
+    line-height: 1.1;
+    color: var(--azul-oscuro);
+    /* navy #233145 */
+    text-transform: uppercase;
+    font-style: italic;
+    margin-top: 4rem;
+    margin-left: 5rem;
+}
+
+/* Párrafos */
+#sobre-proyecto p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--negro);
+    margin-bottom: 1rem;
+    text-align: justify;
+    /* alineado a la izquierda */
+}
+
+/* Lista de áreas */
+#sobre-proyecto .lista-tecnologias {
+    margin-top: 1rem;
+}
+
+#sobre-proyecto .lista-tecnologias li {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--azul);
+    /* azul primario #1D4E9D */
+    margin-bottom: 0.5rem;
+}
+
+/* Iconos de herramientas */
+#sobre-proyecto .iconos-herramientas {
+    display: flex;
+    gap: 1rem;
+}
+
+
+/* Tamaño interno del SVG */
+#sobre-proyecto .herramienta-icon {
+    --size: 60px;
+    width: var(--size);
+    height: var(--size);
+    transition: transform .3s ease;
+}
+
+#sobre-proyecto .herramienta-icon:hover {
+    transform: scale(1.1);
+}
+
+
+/* ————————————————————————————————————— */
+/*  BREAKPOINTS PARA “SOBRE EL PROYECTO”   */
+/* ————————————————————————————————————— */
+
+/* ≥ 992 px  –– ESCRITORIO (lo que ya tiene) ----------------------- */
+/* No cambiamos nada aquí.                                           */
+
+
+/* ≤ 991 px  –– TABLETS ------------------------------------------- */
+@media (max-width: 991.98px) {
+
+    /* Título un poco menor y sin sangría excesiva */
+    #sobre-proyecto .titulo-proyecto {
+        font-size: clamp(3.2rem, 6vw, 4rem);
+        margin-top: 3rem;
+        margin-left: 2rem;
+    }
+
+    /* Iconos algo más pequeños */
+    #sobre-proyecto .herramienta-icon {
+        --size: 42px;
+    }
+}
+
+
+/* ≤ 767 px  –– MÓVILES ------------------------------------------- */
+@media (max-width: 767.98px) {
+
+    /* Centrar el título y reducir márgenes laterales */
+    #sobre-proyecto .titulo-proyecto {
+        font-size: clamp(2.6rem, 8vw, 3.2rem);
+        margin: 2rem 0 1.5rem 0;
+        text-align: center;
+    }
+
+    /* Alinear párrafos y listas a la izquierda (mejor legibilidad
+     en pantallas estrechas) */
+    #sobre-proyecto p,
+    #sobre-proyecto .lista-tecnologias {
+        text-align: justify;
+        padding: 0.4rem;
+    }
+
+    /* Iconos: distribuir en fila y permitir salto de línea */
+    #sobre-proyecto .iconos-herramientas {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Más compactos en móvil */
+    #sobre-proyecto .herramienta-icon {
+        --size: 36px;
+    }
+}
+
+
+/* ≤ 575 px  –– TELÉFONOS PEQUEÑOS -------------------------------- */
+@media (max-width: 575.98px) {
+
+    /* Un poco menos de espacio vertical */
+    #sobre-proyecto {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    /* Título aún menor si es necesario */
+    #sobre-proyecto .titulo-proyecto {
+        font-size: 4rem;
+    }
+
+    /* Lista en columna para no ocupar ancho extra */
+    #sobre-proyecto .lista-tecnologias li {
+        margin-bottom: .3rem;
+    }
+}
+
+
+
+
+/* ————————————————————————————— */
+/* Sección mosaico (igual que el hero) */
+/* ————————————————————————————— */
+#mosaico-capixidil {
+    background-color: var(--blanco);
+    /* si quieres dejar algo de espacio arriba/abajo: */
+    /* padding: 2rem 0; */
+}
+
+#mosaico-capixidil .img-fluid {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    /* opcional, asegura que recorte bien si cambias altura */
+}
+
+
+
+
+
+
+/* ————————————————————————————— */
+/* Sección paleta de colores       */
+/* ————————————————————————————— */
+#paleta-colores {
+    background-color: var(--blanco);
+}
+
+#paleta-colores .color-block {
+    /* Centrado de texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+
+    /* Tamaño fijo para igualar mockup */
+    min-height: 150px;
+
+    /* Tipografía */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--blanco);
+}
+
+/* Cada variante de color */
+#paleta-colores .color-gris {
+    background-color: var(--gris-claro);
+}
+
+#paleta-colores .color-azul {
+    background-color: var(--azul);
+}
+
+#paleta-colores .color-negro {
+    background-color: var(--negro);
+}
+
+#paleta-colores .color-azul-oscuro {
+    background-color: var(--azul-oscuro);
+}
+
+
+
+
+
+/* ————————————————————————————— */
+/* Sección “Capixidil en acción”   */
+/* ————————————————————————————— */
+#capix-accion {
+    background-color: var(--blanco);
+}
+
+#capix-accion .video-col {
+    display: flex;
+}
+
+/* Las dos filas de imágenes con fondo blanco */
+#capix-accion .bg-white {
+    background-color: var(--blanco);
+}
+
+/* Contenedor del video con degradado */
+#capix-accion .video-container {
+    background: linear-gradient(to bottom,
+            var(--azul-oscuro) 0%,
+            var(--negro) 100%);
+    overflow: hidden;
+}
+
+/* Video responsivo */
+#capix-accion .video-hover {
+    object-fit: cover;
+
+}
+
+
+
+/* Icono play en blanco */
+#capix-accion .btn-play i {
+    pointer-events: none;
+}
+
+
+/* ————————————————————————————— */
+/* Sección “Product Showcase”      */
+/* ————————————————————————————— */
+#producto-showcase {
+    background-color: var(--blanco);
+}
+
+/* Forzar altura uniforme y recorte */
+#producto-showcase .col-md-6 {
+    height: 850px;
+    /* o la altura que necesites según mockup */
+}
+
+/* Clase utilitaria para object-fit cover */
+.object-cover {
+    object-fit: cover;
+}
+
+/* Asegurar que el img ocupe todo el contenedor */
+#producto-showcase img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* ————————————————————————————— */
+/* Sección “Detalle de etiqueta”   */
+/* ————————————————————————————— */
+#detalle-etiqueta {
+    background-color: var(--gris-claro);
+    position: relative;
+    overflow: visible;
+}
+
+/* Imagen que invade la sección anterior */
+#detalle-etiqueta .overlap-img {
+    display: block;
+    margin: -170px auto 0;
+    /* negativo para subir la imagen */
+    width: 100%;
+    /* ajústalo al ancho deseado */
+    max-width: 900px;
+    /* o el tamaño que necesites */
+    object-fit: cover;
+}
+
+
+
+/* ===== FOOTER ===== */
+.site-footer {
+    background: black;
+    color: white;
+    border-top: 3px solid black;
+    font-size: .9rem;
+}
+
+.site-footer em {
+    font-style: italic;
+}
+
+.social-link i {
+    font-size: 1.25rem;
+    color: white;
+    transition: transform .25s ease;
+}
+
+.social-link:hover i {
+    transform: scale(1.15);
+}

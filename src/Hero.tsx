@@ -41,7 +41,7 @@ export function Hero() {
           <div className="hero-actions">
             <a className="hero-action" href="#services">Check what I<br />can do for you!</a>
             <span className="action-divider">or</span>
-            <span className="hero-action" role="link" aria-disabled="true">Take a look at<br />my portfolio!</span>
+            <a className="hero-action" href="#portfolio">Take a look at<br />my portfolio!</a>
           </div>
         </div>
 

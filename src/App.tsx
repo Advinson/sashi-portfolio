@@ -1,6 +1,7 @@
 import { About } from './About'
 import { Brandboard } from './Brandboard'
 import { Hero, LoadingIntro } from './Hero'
+import { Portfolio } from './Portfolio'
 import { Services } from './Services'
 import { SiteHeader } from './SiteHeader'
 
@@ -15,6 +16,7 @@ export function App() {
         <About />
         <Brandboard />
         <Services />
+        <Portfolio />
       </main>
     </>
   )

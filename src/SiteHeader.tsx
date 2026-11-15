@@ -10,11 +10,10 @@ const sections = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'services', label: 'Services' },
+  { id: 'portfolio', label: 'Portfolio' },
 ] as const
 
 type SectionId = (typeof sections)[number]['id']
-
-const upcomingSections = ['Portfolio', 'Contact']
 
 function SocialIcon({ name }: { name: (typeof socialLinks)[number]['name'] }) {
   const glyphs = {
@@ -111,9 +110,7 @@ export function SiteHeader() {
                   <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined} onClick={closeMenu}>{label}</a>
                 </li>
               ))}
-              {upcomingSections.map((section) => (
-                <li key={section}><span role="link" aria-disabled="true">{section}</span></li>
-              ))}
+              <li><span role="link" aria-disabled="true">Contact</span></li>
             </ul>
           </nav>
         </div>

@@ -3,6 +3,7 @@ import { App } from './App'
 import './styles.css'
 import './brandboard.css'
 import './services.css'
+import './portfolio.css'
 
 const root = document.getElementById('root')!
 
