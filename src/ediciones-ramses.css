@@ -90,7 +90,7 @@
 .ramses-swatch-red { background: var(--ramses-red); }
 .ramses-swatch-gray { background: var(--ramses-gray); }
 
-.ramses-project {
+.ramses-project, .ramses-manual {
   position: relative;
   isolation: isolate;
   background: #201e1a;
@@ -180,6 +180,41 @@
   aspect-ratio: 4 / 5;
   object-fit: contain;
 }
+
+.ramses-manual { padding: clamp(1.25rem, 4.6cqw, 4rem) 5cqw; }
+
+.ramses-manual-panel {
+  width: min(100%, 64rem);
+  margin-inline: auto;
+  padding: clamp(1rem, 3.5cqw, 3rem);
+  background: var(--ramses-gray);
+}
+
+.ramses-manual-link {
+  display: grid;
+  justify-items: center;
+  gap: clamp(0.6rem, 1.15cqw, 1rem);
+  width: min(100%, 42rem);
+  margin-inline: auto;
+  color: white;
+  font: 700 1rem/1.25 'DM Sans', Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+}
+
+.ramses-manual-link img { display: block; width: 100%; height: auto; }
+
+.ramses-manual-link span {
+  display: grid;
+  place-items: center;
+  min-height: 2.75rem;
+  padding: 0.35em 1.15em;
+  border-radius: 100vw;
+  background: var(--ramses-red);
+}
+
+.ramses-manual-link:is(:hover, :focus-visible) span { background: #000; }
+.ramses-manual-link:focus-visible { outline: 2px solid white; outline-offset: 4px; }
 
 @media (max-width: 47.99rem) {
   .ramses-wordmark { justify-content: space-between; padding-block: 1.15em; }
