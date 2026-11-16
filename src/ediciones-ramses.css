@@ -181,23 +181,19 @@
   object-fit: contain;
 }
 
-.ramses-manual { padding: clamp(1.25rem, 4.6cqw, 4rem) 5cqw; }
-
-.ramses-manual-panel {
-  width: min(100%, 64rem);
-  margin-inline: auto;
-  padding: clamp(1rem, 3.5cqw, 3rem);
+.ramses-manual {
+  padding-block: clamp(1.25rem, 4.75cqw, 4rem) clamp(2rem, 7.6cqw, 6.4rem);
   background: var(--ramses-gray);
 }
 
+.ramses-manual .ramses-project-backdrop { inset-block-end: 38%; }
+
 .ramses-manual-link {
-  display: grid;
-  justify-items: center;
-  gap: clamp(0.6rem, 1.15cqw, 1rem);
-  width: min(100%, 42rem);
+  display: block;
+  width: min(65.5%, 56rem);
   margin-inline: auto;
-  color: white;
-  font: 700 1rem/1.25 'DM Sans', Arial, sans-serif;
+  color: #000;
+  font: 700 clamp(0.75rem, 1.2cqw, 0.95rem)/1.2 'DM Sans', Arial, sans-serif;
   text-align: center;
   text-decoration: none;
 }
@@ -205,16 +201,25 @@
 .ramses-manual-link img { display: block; width: 100%; height: auto; }
 
 .ramses-manual-link span {
+  position: absolute;
+  inset-block-start: 39.5%;
+  inset-inline-end: 7.6%;
   display: grid;
   place-items: center;
-  min-height: 2.75rem;
-  padding: 0.35em 1.15em;
+  min-height: 1.6rem;
+  padding: 0.3em 0.85em;
   border-radius: 100vw;
-  background: var(--ramses-red);
+  background: #fff;
+  translate: 0 -50%;
 }
 
-.ramses-manual-link:is(:hover, :focus-visible) span { background: #000; }
+.ramses-manual-link:is(:hover, :focus-visible) span { background: var(--ramses-red); color: #fff; }
 .ramses-manual-link:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+
+@media (max-width: 40rem) {
+  .ramses-manual-link { width: calc(100% - 2rem); }
+  .ramses-manual-link span { position: static; width: fit-content; min-height: 2.75rem; margin: 0.7rem auto 0; translate: none; }
+}
 
 @media (max-width: 47.99rem) {
   .ramses-wordmark { justify-content: space-between; padding-block: 1.15em; }
