@@ -216,6 +216,30 @@
 .ramses-manual-link:is(:hover, :focus-visible) span { background: var(--ramses-red); color: #fff; }
 .ramses-manual-link:focus-visible { outline: 2px solid white; outline-offset: 4px; }
 
+.ramses-catalog {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  column-gap: 1.5cqw;
+  padding: 0 0.55cqw 2cqw 0;
+  background: var(--ramses-red);
+}
+
+.ramses-catalog-animation {
+  display: block;
+  justify-self: center;
+  width: min(calc(100% - 2rem), 25rem);
+  height: auto;
+}
+
+.ramses-catalog-post {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-block-start: max(-3rem, -2.85cqw);
+}
+
 @media (max-width: 40rem) {
   .ramses-manual-link { width: calc(100% - 2rem); }
   .ramses-manual-link span { position: static; width: fit-content; min-height: 2.75rem; margin: 0.7rem auto 0; translate: none; }
@@ -232,4 +256,6 @@
   .ramses-tools { gap: 0.5rem; margin-top: 1rem; }
   .ramses-phone { position: static; justify-self: center; width: min(58%, 13.5rem); transform: none; }
   .ramses-gallery { gap: 0.35rem; }
+  .ramses-catalog { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding: 1.5rem 0.75rem; }
+  .ramses-catalog-post { margin-block-start: 0; }
 }
