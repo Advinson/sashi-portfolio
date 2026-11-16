@@ -90,7 +90,7 @@
 .ramses-swatch-red { background: var(--ramses-red); }
 .ramses-swatch-gray { background: var(--ramses-gray); }
 
-.ramses-project, .ramses-manual {
+.ramses-project, .ramses-manual, .ramses-atlas {
   position: relative;
   isolation: isolate;
   background: #201e1a;
@@ -217,6 +217,7 @@
 .ramses-manual-link:focus-visible { outline: 2px solid white; outline-offset: 4px; }
 
 .ramses-catalog {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
@@ -225,19 +226,31 @@
   background: var(--ramses-red);
 }
 
-.ramses-catalog-animation {
+.ramses-catalog-video {
+  position: absolute;
+  inset: 0 auto 0 0;
   display: block;
-  justify-self: center;
-  width: min(calc(100% - 2rem), 25rem);
-  height: auto;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .ramses-catalog-post {
   position: relative;
   display: block;
+  grid-column: 2;
   width: 100%;
   height: auto;
   margin-block-start: max(-3rem, -2.85cqw);
+}
+
+.ramses-atlas { padding: 3.3cqw 4.95cqw 2.9cqw; }
+
+.ramses-atlas-artwork {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 @media (max-width: 40rem) {
@@ -257,5 +270,7 @@
   .ramses-phone { position: static; justify-self: center; width: min(58%, 13.5rem); transform: none; }
   .ramses-gallery { gap: 0.35rem; }
   .ramses-catalog { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding: 1.5rem 0.75rem; }
-  .ramses-catalog-post { margin-block-start: 0; }
+  .ramses-catalog-video { position: static; width: 100%; height: auto; }
+  .ramses-catalog-post { grid-column: 1; margin-block-start: 0; }
+  .ramses-atlas { padding-block: 1.5rem; }
 }
