@@ -14,44 +14,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
     <!-- Tu CSS personalizado -->
-    <link rel="stylesheet" href="css/style-gamezine.css" />
+    <link rel="stylesheet" href="/Gamezine/css/style-gamezine.css" />
 </head>
 
-<body>
+<body id="top">
 
-    <!-- NAVBAR -->
-    <header class="navbar-revista">
-        <nav class="nav-container d-flex justify-content-between align-items-center" aria-label="Navegación principal">
-
-            <!-- Flechas + título centrados -->
-            <div class="nav-arrows d-flex align-items-center">
-
-
-                <div class="nav-title">
-                    <p class="label">Revista:</p>
-                    <p class="title">Gamezine</p>
-                </div>
-
-                <!-- Adelante -->
-                <a href="../Laika/laika.html" class="arrow-link" aria-label="Página siguiente">
-                    <img src="../Gamezine/svg/arrow-small-right.svg" alt="Adelante" class="icon">
-                </a>
-            </div>
-
-            <!-- Iconos laterales -->
-            <div class="nav-icons">
-                <a href="/" aria-label="Inicio">
-                    <img src="../Gamezine/svg/home-heart.svg" alt="Inicio" class="icon">
-                </a>
-                <a href="/#portfolio" aria-label="Portafolio">
-                    <img src="../Gamezine/svg/cross-small.svg" alt="Cerrar" class="icon">
-                </a>
-            </div>
-
-        </nav>
-    </header>
-
-
+    <div id="project-header" data-project="gamezine"><!--project-header--></div>
 
     <!-- HERO SECTION -->
     <main class="hero-section container-fluid position-relative d-flex justify-content-center align-items-center px-0">
@@ -68,7 +36,7 @@
             <span class="left-square"></span>
         </nav>
 
-        <img src="svg/arturmorgan.png" alt="Arthur Morgan" class="hero-img img-fluid" />
+        <img src="/Gamezine/svg/arturmorgan.png" alt="Arthur Morgan" class="hero-img img-fluid" />
 
         <nav class="nav-numbers position-absolute top-50 end-0 translate-middle-y
            pe-4 d-flex flex-column align-items-end gap-3">
@@ -76,6 +44,7 @@
             <button class="number-btn" data-section="2">02</button>
             <button class="number-btn" data-section="3">03</button>
         </nav>
+        <a class="gamezine-read" href="https://drive.google.com/file/d/1TTc7I7W1LJpcmzaDYxhooB3LYgr7vGrz/view?usp=sharing" target="_blank" rel="noopener" aria-label="Leer la revista (abre en otra pestaña)">Leer la revista</a>
     </main>
 
 
@@ -93,20 +62,20 @@
                 <!-- Badges (SVG) -->
                 <div class="col-12 col-md-4 d-flex justify-content-center  gap-4">
                     <span class="skill-badge">
-                        <img src="svg/ilustrator.svg" alt="Adobe Illustrator" class="skill-icon">
+                        <img src="/Gamezine/svg/ilustrator.svg" alt="Adobe Illustrator" class="skill-icon">
                     </span>
                     <span class="skill-badge">
-                        <img src="svg/indesign.svg" alt="Adobe InDesign" class="skill-icon">
+                        <img src="/Gamezine/svg/indesign.svg" alt="Adobe InDesign" class="skill-icon">
                     </span>
                     <span class="skill-badge">
-                        <img src="svg/photoshop.svg" alt="Adobe Photoshop" class="skill-icon">
+                        <img src="/Gamezine/svg/photoshop.svg" alt="Adobe Photoshop" class="skill-icon">
                     </span>
                 </div>
 
                 <!-- Mock-up Revista -->
                 <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start magazine-col">
                     <div class="magazine-wrapper">
-                        <img src="svg/portadaycontraportadajuntos.webp"
+                        <img src="/Gamezine/svg/portadaycontraportadajuntos.webp"
                             alt="Mock-up revista Gamezine – Red Dead Redemption II" class="img-fluid">
                     </div>
                 </div>
@@ -160,17 +129,17 @@
                 <!-- Izquierda – Amarillo -->
                 <div class="col-auto">
                     <!-- Reemplace por SU svg o incrústelo inline -->
-                    <img src="svg/yellow-crosshair.svg" class="crosshair crosshair-yellow" alt="Decoración amarilla">
+                    <img src="/Gamezine/svg/yellow-crosshair.svg" class="crosshair crosshair-yellow" alt="Decoración amarilla">
                 </div>
 
                 <!-- Centro – Blanco -->
                 <div class="col-auto">
-                    <img src="svg/white-crosshair.svg" class="crosshair crosshair-white" alt="Decoración blanca">
+                    <img src="/Gamezine/svg/white-crosshair.svg" class="crosshair crosshair-white" alt="Decoración blanca">
                 </div>
 
                 <!-- Derecha – Rojo -->
                 <div class="col-auto">
-                    <img src="svg/red-crosshair.svg" class="crosshair crosshair-red" alt="Decoración roja">
+                    <img src="/Gamezine/svg/red-crosshair.svg" class="crosshair crosshair-red" alt="Decoración roja">
                 </div>
 
             </div>
@@ -189,7 +158,7 @@
                 <!-- Izquierda: imagen grande -->
                 <div class="col-12 col-lg-8">
                     <figure class="m-0 h-100">
-                        <img src="img/mockup01.webp" alt="Revista Gamezine desplegada" class="gallery-img">
+                        <img src="/Gamezine/img/mockup01.webp" alt="Revista Gamezine desplegada" class="gallery-img">
                     </figure>
                 </div>
 
@@ -197,11 +166,11 @@
                 <div class="col-12 col-lg-4 d-flex flex-column">
 
                     <figure class="m-0 flex-fill">
-                        <img src="img/mockup02.webp" alt="Detalle de página interior" class="gallery-img">
+                        <img src="/Gamezine/img/mockup02.webp" alt="Detalle de página interior" class="gallery-img">
                     </figure>
 
                     <figure class="m-0 flex-fill">
-                        <img src="img/mockup03.webp" alt="Doble página abierta" class="gallery-img">
+                        <img src="/Gamezine/img/mockup03.webp" alt="Doble página abierta" class="gallery-img">
                     </figure>
 
                 </div>
@@ -214,7 +183,7 @@
     <!-- SECTION – MOCK-UP PÁGINA COMPLETA -->
     <section class="mockup-full">
         <figure class="m-0">
-            <img src="img/mockup05.webp" alt="Doble página con calendario anual y portada Gamezine"
+            <img src="/Gamezine/img/mockup05.webp" alt="Doble página con calendario anual y portada Gamezine"
                 class="mockup-full-img">
         </figure>
     </section>
@@ -230,14 +199,14 @@
                 <div class="col-12 col-lg-6 position-relative overflow-hidden">
                     <div class="loop-wrapper w-100 h-100">
                         <!-- Frame 1 -->
-                        <img src="img/gif-1.jpg" alt="Glosario con marco amarillo" class="loop-img frame-1">
+                        <img src="/Gamezine/img/gif-1.jpg" alt="Glosario con marco amarillo" class="loop-img frame-1">
 
                         <!-- Frame 2 -->
-                        <img src="img/gif-2.jpg" alt="Glosario con letras resaltadas" class="loop-img frame-2">
+                        <img src="/Gamezine/img/gif-2.jpg" alt="Glosario con letras resaltadas" class="loop-img frame-2">
 
                         <!-- Frame 3 -->
-                        <img src="img/gif-3.jpg" alt="Glosario con letras resaltadas" class="loop-img frame-3">
-                        <img src="img/GAMEZINEFINAL_page-0013.webp" alt="Detalle de ilustración"
+                        <img src="/Gamezine/img/gif-3.jpg" alt="Glosario con letras resaltadas" class="loop-img frame-3">
+                        <img src="/Gamezine/img/GAMEZINEFINAL_page-0013.webp" alt="Detalle de ilustración"
                             class="loop-img frame-4">
                     </div>
                 </div>
@@ -245,7 +214,7 @@
                 <!-- Columna estática -->
                 <div class="col-12 col-lg-6">
                     <figure class="m-0 h-100">
-                        <img src="img/mockup06.webp" alt="Pila de revistas Gamezine apiladas" class="gallery-img">
+                        <img src="/Gamezine/img/mockup06.webp" alt="Pila de revistas Gamezine apiladas" class="gallery-img">
                     </figure>
                 </div>
 
@@ -257,7 +226,7 @@
     <!-- SECTION – MOCK-UP PÁGINA COMPLETA -->
     <section class="mockup-full">
         <figure class="m-0">
-            <img src="img/mockup04.webp" alt="Doble página con calendario anual y portada Gamezine"
+            <img src="/Gamezine/img/mockup04.webp" alt="Doble página con calendario anual y portada Gamezine"
                 class="mockup-full-img">
         </figure>
     </section>
@@ -265,44 +234,14 @@
 
 
     <!-- FOOTER -->
-    <footer class="site-footer border-top-2">
-        <div class="container py-3">
-            <div class="row align-items-center text-center text-lg-start gx-0">
+    <div id="project-footer"><!--project-footer--></div>
 
-                <!-- Izquierda -->
-                <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                    <span class="copyright-icon me-2 bi bi-c-circle"></span>
-                    <em>copyright bysashi 2025</em>
-                </div>
-
-                <!-- Centro – Redes -->
-                <div class="col-12 col-lg-4 mb-3 mb-lg-0 d-flex justify-content-center gap-3">
-                    <!-- Instagram -->
-                    <a href="https://www.instagram.com/bysashiii/" target="_blank" rel="noopener" class="social-link"
-                        aria-label="Instagram">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-
-                    <!-- LinkedIn (círculo) -->
-                    <a href="https://www.linkedin.com/in/scarlethmassou/" target="_blank" rel="noopener"
-                        class="social-link circle" aria-label="LinkedIn">
-                        <i class="bi bi-linkedin"></i>
-                    </a>
-                </div>
-
-                <!-- Derecha -->
-                <div class="col-12 col-lg-4">
-                    <em>website made by advinson</em>
-                </div>
-
-            </div>
-        </div>
-    </footer>
+    <script type="module" src="/src/project-page.tsx"></script>
 
 
 
     <!-- Script para numeración interactiva -->
-    <script src="js/script-gamezine.js"></script>
+    <script src="/Gamezine/js/script-gamezine.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,58 @@
+@font-face {
+  font-family: Caldina;
+  src: url('/fonts/CaldinaRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Caldina;
+  src: url('/fonts/CaldinaBold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'More Sugar';
+  src: url('/fonts/MoreSugar-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+.content-frame {
+  max-width: var(--content-max, 100rem);
+  margin-inline: auto;
+  container-type: inline-size;
+}
+
+.social-links { display: flex; align-items: center; }
+
+.social-links a {
+  display: grid;
+  place-items: center;
+  width: max(1.625rem, 2.55cqw);
+  min-height: 1.75rem;
+  border-radius: 50%;
+}
+
+.social-icon {
+  display: grid;
+  place-items: center;
+  width: max(1.3125rem, 2.08cqw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: white;
+  background: var(--ink, #000);
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.social-icon svg { width: 72%; height: 72%; }
+.social-links a:is(:hover, :focus-visible) .social-icon {
+  background: var(--accent-text, #b8143d);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-icon { transition: none; }
+  .social-links a:is(:hover, :focus-visible) .social-icon { transform: none; }
+}

@@ -30,9 +30,9 @@ function FooterTime() {
   )
 }
 
-export function SiteFooter() {
+export function SiteFooter({ projectPage = false }: { projectPage?: boolean }) {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" lang="en">
       <div className="content-frame">
         <div className="footer-layout">
           <div className="footer-credit">
@@ -50,7 +50,7 @@ export function SiteFooter() {
             <h2 id="footer-site-title">Site</h2>
             <ul>
               {siteSections.filter(({ id }) => id !== 'contact').map(({ id, label }) => (
-                <li key={id}><a href={`#${id}`}>{label}</a></li>
+                <li key={id}><a href={`${projectPage ? '/' : ''}#${id}`}>{label}</a></li>
               ))}
             </ul>
           </nav>
@@ -60,7 +60,7 @@ export function SiteFooter() {
             <SocialLinks inFooter />
           </div>
 
-          <a className="footer-top" href="#home">
+          <a className="footer-top" href={projectPage ? '#top' : '#home'}>
             <svg aria-hidden="true" viewBox="0 0 24 49" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 47V3M2 13 12 3l10 10" />
             </svg>

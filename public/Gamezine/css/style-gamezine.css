@@ -644,14 +644,6 @@ body {
 
 
 
-/* Íconos del footer */
-.social-link i {
-    font-size: 1.25rem;
-    /* ≈ 20 px */
-    color: var(--blanco);
-    transition: transform .25s ease;
-}
-
 .social-link:hover i {
     transform: scale(1.1);
 }

@@ -485,24 +485,6 @@ body {
 
 
 
-/* ===== FOOTER ===== */
-.site-footer {
-    background: black;
-    color: white;
-    border-top: 3px solid black;
-    font-size: .9rem;
-}
-
-.site-footer em {
-    font-style: italic;
-}
-
-.social-link i {
-    font-size: 1.25rem;
-    color: white;
-    transition: transform .25s ease;
-}
-
 .social-link:hover i {
     transform: scale(1.15);
 }

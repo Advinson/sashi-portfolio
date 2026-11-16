@@ -73,3 +73,9 @@ export const portfolioProjects: PortfolioProject[] = [
     thumbnail: null,
   },
 ]
+
+export const projectPages = portfolioProjects.flatMap(({ id, title, href }) => (
+  href?.startsWith('/') && href.endsWith('.html')
+    ? [{ id, title, href, template: decodeURIComponent(href.slice(1)) }]
+    : []
+))

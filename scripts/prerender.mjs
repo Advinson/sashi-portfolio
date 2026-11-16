@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises'
-import { render } from '../.prerender/entry-server.js'
+import { projectPages, render, renderProjectChrome } from '../.prerender/entry-server.js'
 
 const indexFile = new URL('../dist/index.html', import.meta.url)
 const template = await readFile(indexFile, 'utf8')
@@ -27,3 +27,16 @@ const html = template
   .replace('<!--app-html-->', () => render())
 
 await writeFile(indexFile, html)
+
+await Promise.all(projectPages.map(async ({ id, href }) => {
+  const file = new URL(`../dist${href}`, import.meta.url)
+  const template = await readFile(file, 'utf8')
+  if (!template.includes('<!--project-header-->') || !template.includes('<!--project-footer-->')) {
+    throw new Error(`Missing prerender markers in ${href}`)
+  }
+
+  const { header, footer } = renderProjectChrome(id)
+  await writeFile(file, template
+    .replace('<!--project-header-->', () => header)
+    .replace('<!--project-footer-->', () => footer))
+}))
