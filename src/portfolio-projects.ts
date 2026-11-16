@@ -55,8 +55,8 @@ export const portfolioProjects: PortfolioProject[] = [
     id: 'ediciones-ramses',
     title: 'Ediciones Ramsés',
     categories: ['advertising'],
-    href: null,
-    thumbnail: null,
+    href: '/ediciones-ramses.html',
+    thumbnail: '/art/portfolio/ediciones-ramses.webp',
   },
   {
     id: 'hospital-catolico',

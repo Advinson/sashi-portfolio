@@ -1,0 +1,98 @@
+@font-face {
+  font-family: Anton;
+  src: url('/fonts/Anton-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DM-Sans-Latin.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+.ramses-page {
+  --ramses-red: #9f1916;
+  --ramses-gray: #858485;
+  margin: 0;
+}
+
+.ramses-page *, .ramses-page *::before, .ramses-page *::after { box-sizing: border-box; }
+.ramses-main { container-type: inline-size; }
+
+.ramses-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: clamp(19rem, 36.75cqw, 45rem);
+  overflow: clip;
+  background: var(--ramses-gray);
+}
+
+.ramses-wordmark {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.17em;
+  color: var(--ramses-red);
+  font: 400 clamp(2.2rem, 13.1cqw, 15.75rem)/1.02 Anton, Impact, sans-serif;
+  text-align: center;
+  text-shadow: 0.023em 0.023em 0.023em rgb(0 0 0 / 25%);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ramses-wordmark h1 { margin: 0; font: inherit; }
+
+.ramses-caption {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.44em;
+  width: min(65.5%, 79rem);
+  min-height: clamp(4.6rem, 10.1cqw, 11.1rem);
+  padding: 0.36em 0.73em 0.4em 0.84em;
+  border-radius: 100vw;
+  background: #fff;
+  color: var(--ramses-gray);
+  font: 400 clamp(1.45rem, 3.55cqw, 4.3rem)/1.15 'DM Sans', Arial, sans-serif;
+}
+
+.ramses-caption p { margin: 0; }
+.ramses-magnifier { display: block; width: 1.74em; }
+
+.ramses-cursor {
+  position: absolute;
+  top: calc(100% - 0.5em);
+  right: 3.65%;
+  width: 1.37em;
+  height: auto;
+  rotate: -16deg;
+  pointer-events: none;
+}
+
+.ramses-palette {
+  display: grid;
+  grid-template-columns: 0.96fr 1.04fr;
+  gap: clamp(0.5rem, 1.9cqw, 2rem);
+  padding: clamp(0.75rem, 1.65cqw, 1.9rem) 2.65cqw;
+  background: #fff;
+}
+
+.ramses-swatch { height: clamp(0.8rem, 2cqw, 2.1rem); border-radius: 100vw; }
+.ramses-swatch-red { background: var(--ramses-red); }
+.ramses-swatch-gray { background: var(--ramses-gray); }
+
+@media (max-width: 47.99rem) {
+  .ramses-wordmark { justify-content: space-between; padding-block: 1.15em; }
+  .ramses-caption { width: calc(100% - 1.8rem); max-width: 34rem; padding: 0.65em 0.9em; font-size: clamp(1.5rem, 4.6cqw, 2rem); }
+  .ramses-caption strong { white-space: nowrap; }
+  .ramses-cursor { right: 7%; }
+}

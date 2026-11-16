@@ -120,7 +120,9 @@
 .portfolio-card[data-project='capixidil'] a { background: #233145; }
 .portfolio-card[data-project='fancy-quality'] a { background: #ea5d82; }
 .portfolio-card[data-project='billete-1000-lempiras'] a { background: #1f2e31; }
-.portfolio-card[data-project='fancy-quality'] img { object-fit: contain; }
+.portfolio-card[data-project='ediciones-ramses'] a { background: #858485; }
+.portfolio-card[data-project='fancy-quality'] img,
+.portfolio-card[data-project='ediciones-ramses'] img { object-fit: contain; }
 
 .portfolio-card-name {
   padding: 0.65rem 1rem;
