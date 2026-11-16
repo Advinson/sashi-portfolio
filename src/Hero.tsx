@@ -1,4 +1,5 @@
 import { AccentText } from './AccentText'
+import { CornerRibbons } from './CornerRibbons'
 
 const figures = [
   { name: 'cat', width: 420, height: 268 },
@@ -18,19 +19,10 @@ export function LoadingIntro() {
   )
 }
 
-function HeroRibbons() {
-  return (
-    <div className="hero-ribbons" aria-hidden="true">
-      <img className="ribbon ribbon-left" src="/art/ribbon.webp" alt="" width="676" height="285" />
-      <img className="ribbon ribbon-right" src="/art/ribbon.webp" alt="" width="676" height="285" />
-    </div>
-  )
-}
-
 export function Hero() {
   return (
     <section id="home" className="showcase" aria-labelledby="hero-title">
-      <HeroRibbons />
+      <CornerRibbons />
       <div className="content-frame hero">
         <div className="hero-copy">
           <h1 id="hero-title">

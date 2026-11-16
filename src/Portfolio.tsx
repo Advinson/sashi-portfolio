@@ -30,7 +30,8 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
 }
 
 export function Portfolio() {
-  const [filter, setFilter] = useState<Filter>('all')
+  const [selection, setFilter] = useState<Filter | null>(null)
+  const filter = selection ?? 'all'
   const projects = portfolioProjects.filter((project) => filter === 'all' || project.categories.includes(filter))
 
   return (
@@ -46,14 +47,16 @@ export function Portfolio() {
 
           <div className="portfolio-filters" role="group" aria-label="Filter projects by category">
             {filters.map(({ id, label }) => (
-              <button key={id} type="button" aria-pressed={filter === id} aria-controls="portfolio-projects" onClick={() => setFilter(id)}>
+              <button key={id} type="button" aria-pressed={filter === id} aria-controls="portfolio-projects" onClick={() => {
+                if (filter !== id) setFilter(id)
+              }}>
                 {label}
               </button>
             ))}
           </div>
 
           <p className="portfolio-status" role="status">{projects.length} {projects.length === 1 ? 'project' : 'projects'}</p>
-          <ul id="portfolio-projects" className="portfolio-grid" role="list">
+          <ul key={filter} id="portfolio-projects" className="portfolio-grid" role="list" data-animate={selection !== null}>
             {projects.map((project) => <ProjectCard key={project.id} project={project} />)}
           </ul>
         </div>

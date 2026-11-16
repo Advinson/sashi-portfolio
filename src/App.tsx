@@ -1,8 +1,10 @@
 import { About } from './About'
 import { Brandboard } from './Brandboard'
+import { Contact } from './Contact'
 import { Hero, LoadingIntro } from './Hero'
 import { Portfolio } from './Portfolio'
 import { Services } from './Services'
+import { SiteFooter } from './SiteFooter'
 import { SiteHeader } from './SiteHeader'
 
 export function App() {
@@ -17,7 +19,9 @@ export function App() {
         <Brandboard />
         <Services />
         <Portfolio />
+        <Contact />
       </main>
+      <SiteFooter />
     </>
   )
 }
