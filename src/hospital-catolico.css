@@ -1,0 +1,115 @@
+.hospital-page {
+  --hospital-blue: #243771;
+  --hospital-yellow: #fbb921;
+  --hospital-sky: #c4e7fb;
+  --hospital-gray: #878787;
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.hospital-main { container-type: inline-size; }
+.hospital-hero { background: white; }
+
+.hospital-palette {
+  height: clamp(0.45rem, 1.24cqw, 1.5rem);
+  background: linear-gradient(to right,
+    var(--hospital-blue) 0 36.2%,
+    var(--hospital-yellow) 36.2% 68.6%,
+    var(--hospital-sky) 68.6% 84.8%,
+    var(--hospital-gray) 84.8% 100%);
+}
+
+.hospital-stage {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 1290 / 465;
+  overflow: hidden;
+}
+
+.hospital-watermark {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 auto;
+  width: 12%;
+  height: 100%;
+  fill: none;
+  stroke: var(--hospital-blue);
+  stroke-width: 32;
+  opacity: 0.05;
+}
+
+.hospital-stage h1 {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 50%;
+  inset-inline-start: 65.2%;
+  margin: 0;
+  translate: 0 -50%;
+  color: var(--hospital-gray);
+  font: 400 7.6cqw/1 proxima-nova, 'Proxima Nova', Tahoma, Arial, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.hospital-stage h1 strong { color: var(--hospital-blue); font-weight: 700; }
+.hospital-collage { position: absolute; inset: 0; }
+
+.hospital-building {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 52%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, #000 75%, transparent 100%);
+}
+
+.hospital-building img {
+  position: relative;
+  inset-inline-start: -11%;
+  display: block;
+  width: 135.4%;
+  height: auto;
+}
+
+.hospital-portrait-definitions { position: absolute; }
+
+.hospital-portrait {
+  position: absolute;
+  inset-inline-start: 42.6%;
+  width: 12%;
+  aspect-ratio: 1;
+  background: white;
+  clip-path: url(#hospital-portrait-outline);
+}
+
+.hospital-portrait img {
+  position: absolute;
+  inset: 3.3%;
+  width: 93.4%;
+  height: 93.4%;
+  object-fit: cover;
+  clip-path: url(#hospital-portrait-outline);
+}
+
+.hospital-portrait-lab { inset-block-start: 9%; }
+.hospital-portrait-lab img { object-position: center 33%; }
+.hospital-portrait-doctor { inset-block-start: 34.2%; inset-inline-start: 50.5%; }
+.hospital-portrait-doctor img { object-position: 56% center; }
+.hospital-portrait-staff { inset-block-start: 59.1%; }
+.hospital-portrait-staff img { object-position: 64% center; }
+
+@media (max-width: 47.99rem) {
+  .hospital-stage { display: flex; flex-direction: column-reverse; aspect-ratio: auto; }
+  .hospital-stage h1 {
+    position: static;
+    padding-block: 0.25em 0.45em;
+    translate: none;
+    font-size: clamp(2.75rem, 12.5cqw, 5rem);
+    text-align: center;
+  }
+  .hospital-watermark { width: 24%; }
+  .hospital-collage { position: relative; aspect-ratio: 16 / 10; }
+  .hospital-building { width: 78%; }
+  .hospital-portrait { inset-inline-start: 56%; width: 22%; }
+  .hospital-portrait-lab { inset-block-start: 7%; }
+  .hospital-portrait-doctor { inset-block-start: 33%; inset-inline-start: 73%; }
+  .hospital-portrait-staff { inset-block-start: 59%; }
+}

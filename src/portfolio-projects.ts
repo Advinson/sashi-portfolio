@@ -60,10 +60,10 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: 'hospital-catolico',
-    title: 'Hospital Católico',
+    title: 'Hospital Católico Universitario',
     categories: ['identity', 'advertising'],
-    href: null,
-    thumbnail: null,
+    href: '/hospital-catolico.html',
+    thumbnail: '/art/portfolio/hospital-catolico.webp',
   },
   {
     id: 'fundacion-santa-maria',
