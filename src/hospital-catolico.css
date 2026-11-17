@@ -204,6 +204,27 @@
   overflow: hidden;
 }
 
+.hospital-identity {
+  display: grid;
+  grid-template-columns: 32.7% 32.1% 35.2%;
+}
+
+.hospital-identity-panel {
+  display: grid;
+  place-items: center;
+  padding-block: 0.45cqw;
+  background: white;
+}
+
+.hospital-identity-panel img {
+  display: block;
+  width: min(29.7cqw, 100%);
+  height: auto;
+}
+
+.hospital-identity-yellow { background: var(--hospital-yellow); }
+.hospital-identity-blue { background: var(--hospital-blue); }
+
 @media (max-width: 59.99rem) {
   .hospital-overview-stage { min-height: 0; }
   .hospital-overview-copy { width: 100%; padding: 1.75rem 5cqw 0; }
@@ -226,6 +247,9 @@
 
 @media (max-width: 47.99rem) {
   .hospital-social-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hospital-identity { grid-template-columns: minmax(0, 1fr); }
+  .hospital-identity-panel { padding-block: 0.35rem; }
+  .hospital-identity-panel img { width: min(90%, 29rem); }
   .hospital-stage { display: flex; flex-direction: column-reverse; aspect-ratio: auto; }
   .hospital-stage h1 {
     position: static;
