@@ -3,6 +3,7 @@
   --hospital-yellow: #fbb921;
   --hospital-sky: #c4e7fb;
   --hospital-gray: #878787;
+  --hospital-display-font: proxima-nova, 'Proxima Nova', Tahoma, Arial, sans-serif;
   margin: 0;
   font-family: Tahoma, Arial, sans-serif;
 }
@@ -46,7 +47,7 @@
   margin: 0;
   translate: 0 -50%;
   color: var(--hospital-gray);
-  font: 400 7.6cqw/1 proxima-nova, 'Proxima Nova', Tahoma, Arial, sans-serif;
+  font: 400 7.6cqw/1 var(--hospital-display-font);
   letter-spacing: -0.025em;
 }
 
@@ -95,6 +96,95 @@
 .hospital-portrait-doctor img { object-position: 56% center; }
 .hospital-portrait-staff { inset-block-start: 59.1%; }
 .hospital-portrait-staff img { object-position: 64% center; }
+
+.hospital-overview {
+  border-block-end: 3px solid var(--hospital-blue);
+  background: #fff;
+  color: #000;
+}
+
+.hospital-overview-stage {
+  position: relative;
+  isolation: isolate;
+  min-height: 39cqw;
+  overflow: clip;
+}
+
+.hospital-overview-copy {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: fit-content;
+  padding: 2.2cqw 0 2.3cqw 4.45cqw;
+}
+
+.hospital-overview h2 {
+  margin: 0 0 1.35cqw;
+  color: var(--hospital-blue);
+  font: 700 4.05cqw/1.05 var(--hospital-display-font);
+  text-transform: uppercase;
+}
+
+.hospital-overview-columns {
+  display: grid;
+  grid-template-columns: 25cqw 23.3cqw;
+  gap: 3.25cqw;
+  font-size: 1.48cqw;
+  line-height: 1.32;
+  text-align: justify;
+}
+
+.hospital-overview-columns p { margin: 0; }
+.hospital-overview-columns p + p { margin-block-start: 0.65em; }
+
+.hospital-tools {
+  display: block;
+  width: min(17.55cqw, 100%);
+  height: auto;
+  margin: 0.85em 0 0 0.12em;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+}
+
+.hospital-overview-visual {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 51%;
+}
+
+.hospital-overview-visual::before {
+  position: absolute;
+  inset: 0;
+  background: url('/art/hospital/pasillo.jpeg') center / auto 100% no-repeat;
+  mask-image: linear-gradient(to right, transparent 10%, #000 46%);
+  content: '';
+}
+
+.hospital-overview-visual img {
+  position: absolute;
+  inset: auto -5.8% 0 auto;
+  display: block;
+  width: 104%;
+  height: auto;
+  transform: scaleX(-1);
+}
+
+@media (max-width: 59.99rem) {
+  .hospital-overview-stage { min-height: 0; }
+  .hospital-overview-copy { width: 100%; padding: 1.75rem 5cqw 0; }
+  .hospital-overview h2 { margin-block-end: 1rem; font-size: clamp(2rem, 6cqw, 3rem); }
+  .hospital-overview-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; font-size: 1rem; text-align: start; }
+  .hospital-tools { width: min(12rem, 100%); }
+  .hospital-overview-visual { position: relative; inset: auto; width: 100%; aspect-ratio: 2 / 1; }
+  .hospital-overview-visual::before { background-size: cover; mask-image: linear-gradient(to bottom, transparent, #000 48%); }
+  .hospital-overview-visual img { inset-inline-end: 50%; width: min(72%, 39rem); transform: translateX(50%) scaleX(-1); }
+}
+
+@media (max-width: 34rem) {
+  .hospital-overview-columns { grid-template-columns: 1fr; gap: 0.9em; }
+  .hospital-overview-visual { aspect-ratio: 4 / 3; }
+  .hospital-overview-visual img { width: 100%; }
+}
 
 @media (max-width: 47.99rem) {
   .hospital-stage { display: flex; flex-direction: column-reverse; aspect-ratio: auto; }
