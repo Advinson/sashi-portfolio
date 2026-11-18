@@ -278,16 +278,16 @@
   aspect-ratio: 913 / 302;
 }
 
-.hospital-applications-row > :is(img, svg) {
+.hospital-applications-row > img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.hospital-applications-row > svg { overflow: hidden; }
 .hospital-applications-web { object-position: center top; }
 .hospital-applications-staff { scale: 1.12; transform-origin: right top; }
+.hospital-applications-banner { object-position: center 22%; }
 
 @media (max-width: 59.99rem) {
   .hospital-overview-stage { min-height: 0; }
@@ -322,10 +322,12 @@
   .hospital-identity-panel img { width: min(90%, 29rem); }
   .hospital-applications-row { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; aspect-ratio: auto; }
   .hospital-applications-signage { grid-template-columns: minmax(0, 242fr) minmax(0, 265fr); }
-  .hospital-applications-row > :is(img, svg) { height: auto; }
+  .hospital-applications-row > img { height: auto; }
   .hospital-applications-web { aspect-ratio: 1600 / 694; }
   .hospital-applications-staff { scale: none; }
   .hospital-applications-billboard { grid-column: 1 / -1; aspect-ratio: 406 / 302; }
+  .hospital-applications-qr { aspect-ratio: 242 / 302; }
+  .hospital-applications-banner { aspect-ratio: 265 / 302; }
   .hospital-stage { display: flex; flex-direction: column-reverse; aspect-ratio: auto; }
   .hospital-stage h1 {
     position: static;
