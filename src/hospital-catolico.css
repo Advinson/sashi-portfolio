@@ -263,6 +263,32 @@
 .hospital-video-play:hover::before { background: rgb(19 30 42 / 85%); }
 .hospital-video-play:focus-visible { outline: 3px solid white; outline-offset: -5px; }
 
+.hospital-applications-row {
+  display: grid;
+  grid-template-columns: minmax(0, 465fr) minmax(0, 448fr);
+  grid-template-rows: minmax(0, 1fr);
+  overflow: clip;
+}
+
+.hospital-applications-digital { aspect-ratio: 913 / 203; }
+.hospital-applications-photography { aspect-ratio: 913 / 298; }
+
+.hospital-applications-signage {
+  grid-template-columns: minmax(0, 406fr) minmax(0, 242fr) minmax(0, 265fr);
+  aspect-ratio: 913 / 302;
+}
+
+.hospital-applications-row > :is(img, svg) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hospital-applications-row > svg { overflow: hidden; }
+.hospital-applications-web { object-position: center top; }
+.hospital-applications-staff { scale: 1.12; transform-origin: right top; }
+
 @media (max-width: 59.99rem) {
   .hospital-overview-stage { min-height: 0; }
   .hospital-overview-copy { width: 100%; padding: 1.75rem 5cqw 0; }
@@ -294,6 +320,12 @@
   .hospital-identity { grid-template-columns: minmax(0, 1fr); }
   .hospital-identity-panel { padding-block: 0.35rem; }
   .hospital-identity-panel img { width: min(90%, 29rem); }
+  .hospital-applications-row { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; aspect-ratio: auto; }
+  .hospital-applications-signage { grid-template-columns: minmax(0, 242fr) minmax(0, 265fr); }
+  .hospital-applications-row > :is(img, svg) { height: auto; }
+  .hospital-applications-web { aspect-ratio: 1600 / 694; }
+  .hospital-applications-staff { scale: none; }
+  .hospital-applications-billboard { grid-column: 1 / -1; aspect-ratio: 406 / 302; }
   .hospital-stage { display: flex; flex-direction: column-reverse; aspect-ratio: auto; }
   .hospital-stage h1 {
     position: static;
