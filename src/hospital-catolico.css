@@ -225,6 +225,44 @@
 .hospital-identity-yellow { background: var(--hospital-yellow); }
 .hospital-identity-blue { background: var(--hospital-blue); }
 
+.hospital-videos {
+  display: grid;
+  grid-template-columns: minmax(0, 256fr) repeat(2, minmax(0, 81fr));
+  background: var(--hospital-blue);
+}
+
+.hospital-video { position: relative; }
+.hospital-video video { display: block; width: 100%; height: auto; background: #000; }
+
+.hospital-video-play:not([hidden]) {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hospital-video-play::before, .hospital-video-play::after { grid-area: 1 / 1; content: ''; }
+
+.hospital-video-play::before {
+  width: 3rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgb(19 30 42 / 68%);
+}
+
+.hospital-video-play::after {
+  margin-inline-start: 0.15rem;
+  border-block: 0.48rem solid transparent;
+  border-inline-start: 0.75rem solid white;
+}
+
+.hospital-video-play:hover::before { background: rgb(19 30 42 / 85%); }
+.hospital-video-play:focus-visible { outline: 3px solid white; outline-offset: -5px; }
+
 @media (max-width: 59.99rem) {
   .hospital-overview-stage { min-height: 0; }
   .hospital-overview-copy { width: 100%; padding: 1.75rem 5cqw 0; }
@@ -237,6 +275,12 @@
   .hospital-social { padding: 1rem 0 0; }
   .hospital-social-gallery { gap: 0.65rem; width: auto; margin-inline: 4cqw; }
   .hospital-social-phone { position: static; width: min(100%, 31.2rem); margin: 1rem 0 0 auto; }
+  .hospital-videos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hospital-video:first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 35.99rem) {
+  .hospital-videos { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 34rem) {

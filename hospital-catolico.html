@@ -101,9 +101,31 @@
           <img src="/art/hospital/identidad/logo-amarillo.webp" alt="Logo institucional amarillo sobre fondo azul" width="799" height="484" loading="lazy" decoding="async" />
         </div>
       </section>
+
+      <section class="hospital-videos" aria-label="Videos del Hospital Católico Universitario">
+        <div class="hospital-video">
+          <video width="1920" height="1080" controls playsinline preload="none" poster="/art/hospital/videos/intro-actualizada.webp" aria-label="Intro actualizada">
+            <source src="/art/hospital/videos/intro-actualizada.mp4" type="video/mp4" />
+          </video>
+          <button class="hospital-video-play" type="button" aria-label="Reproducir Intro actualizada" hidden></button>
+        </div>
+        <div class="hospital-video">
+          <video width="1080" height="1920" controls playsinline preload="none" poster="/art/hospital/videos/recap-bienvenidos.webp" aria-label="Recap Bienvenidos">
+            <source src="/art/hospital/videos/recap-bienvenidos.mp4" type="video/mp4" />
+          </video>
+          <button class="hospital-video-play" type="button" aria-label="Reproducir Recap Bienvenidos" hidden></button>
+        </div>
+        <div class="hospital-video">
+          <video width="1080" height="1920" controls playsinline preload="none" poster="/art/hospital/videos/feriado-morazanico.webp" aria-label="Feriado Morazánico">
+            <source src="/art/hospital/videos/feriado-morazanico.mp4" type="video/mp4" />
+          </video>
+          <button class="hospital-video-play" type="button" aria-label="Reproducir Feriado Morazánico" hidden></button>
+        </div>
+      </section>
     </main>
 
     <div id="project-footer"><!--project-footer--></div>
     <script type="module" src="/src/project-page.tsx"></script>
+    <script type="module" src="/src/hospital-videos.ts"></script>
   </body>
 </html>
