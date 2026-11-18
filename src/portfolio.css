@@ -122,9 +122,11 @@
 .portfolio-card[data-project='billete-1000-lempiras'] a { background: #1f2e31; }
 .portfolio-card[data-project='ediciones-ramses'] a { background: #858485; }
 .portfolio-card[data-project='hospital-catolico'] a { background: white; }
+.portfolio-card[data-project='fundacion-santa-maria'] a { background: #071937; }
 .portfolio-card[data-project='fancy-quality'] img,
 .portfolio-card[data-project='ediciones-ramses'] img,
-.portfolio-card[data-project='hospital-catolico'] img { object-fit: contain; }
+.portfolio-card[data-project='hospital-catolico'] img,
+.portfolio-card[data-project='fundacion-santa-maria'] img { object-fit: contain; }
 
 .portfolio-card-name {
   padding: 0.65rem 1rem;

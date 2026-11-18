@@ -69,8 +69,8 @@ export const portfolioProjects: PortfolioProject[] = [
     id: 'fundacion-santa-maria',
     title: 'Fundación Santa María de la Salud',
     categories: ['identity'],
-    href: null,
-    thumbnail: null,
+    href: '/fundacion-santa-maria.html',
+    thumbnail: '/art/portfolio/fundacion-santa-maria.webp',
   },
 ]
 
